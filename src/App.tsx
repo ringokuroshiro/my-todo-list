@@ -3,12 +3,11 @@ import './App.css';
 import  {　ToDo　} from './types'
 import {　ToDoList　} from './toDoList'
 import { AddTodoForm } from './addToDoForm'
-import { v4 } from 'uuid';
+import { v4 as uuidv4} from 'uuid';
 
 function App() {
   const [ toDos, setToDos ] = useState<Array<ToDo>>([])
   const [ newText, setNewText ] = useState("")
-  const id: string = v4();
 
   function deleteToDo(deleteToDo: ToDo) {
     const newToDoList = toDos.filter(todo => todo.id !== deleteToDo.id)
@@ -20,7 +19,7 @@ function App() {
       return
     }
     const newOne: ToDo = {
-      id: id,
+      id: uuidv4(),
       text: newText
     }
     const newToDos = Array.from(toDos)
