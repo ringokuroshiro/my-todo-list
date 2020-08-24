@@ -22,8 +22,9 @@ function App() {
     const newToDos = Array.from(toDos)
     setToDos(newToDos.concat(newOne))
     setCount(count + 1)
+    setNewText("")
   }
-
+  
   function handleChanged(event: React.ChangeEvent<HTMLInputElement>) {
     setNewText(event.target.value)
   }
@@ -32,7 +33,7 @@ function App() {
     <div className="App">
       <header className="App-header">
       <div>
-        <AddTodoForm onAdd={addToDo} onChange={handleChanged}/>
+        <AddTodoForm onAdd={addToDo} onChange={handleChanged} title={newText}/>
         </div>
         <div>
         <ToDoList toDos={toDos} onDelete={deleteToDo}/>
