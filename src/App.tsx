@@ -15,6 +15,9 @@ function App() {
   }
 
   function addToDo() {
+    if (newText === "") {
+      return
+    }
     const newOne: ToDo = {
       id: count,
       text: newText
