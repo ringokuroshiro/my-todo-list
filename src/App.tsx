@@ -3,11 +3,12 @@ import './App.css';
 import  {　ToDo　} from './types'
 import {　ToDoList　} from './toDoList'
 import { AddTodoForm } from './addToDoForm'
+import { v4 } from 'uuid';
 
 function App() {
   const [ toDos, setToDos ] = useState<Array<ToDo>>([])
   const [ newText, setNewText ] = useState("")
-  const [ count, setCount ] = useState<number>(toDos.length + 1)
+  const id: string = v4();
 
   function deleteToDo(deleteToDo: ToDo) {
     const newToDoList = toDos.filter(todo => todo.id !== deleteToDo.id)
@@ -19,12 +20,11 @@ function App() {
       return
     }
     const newOne: ToDo = {
-      id: count,
+      id: id,
       text: newText
     }
     const newToDos = Array.from(toDos)
     setToDos(newToDos.concat(newOne))
-    setCount(count + 1)
     setNewText("")
   }
   

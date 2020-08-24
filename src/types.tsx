@@ -1,4 +1,4 @@
 export type ToDo = {
-    id: number;
+    id: string;
     text: string;
 }
