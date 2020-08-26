@@ -1,6 +1,7 @@
 import React from 'react'
 import { ToDoListItem } from './toDoItem'
 import { ToDo } from './types'
+import { List } from '@material-ui/core';
 
 export type ToDoListProps = {
     toDos: ToDo[]
@@ -9,9 +10,9 @@ export type ToDoListProps = {
 
 export const ToDoList = (props: ToDoListProps) => {
   return (
-  <ul >
+  <List >
        {props.toDos.map(todo => (
       <ToDoListItem toDo={todo}  onDelete={props.onDelete} />
     ))}   
-  </ul>
+  </List>
 )}

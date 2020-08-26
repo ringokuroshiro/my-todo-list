@@ -1,5 +1,6 @@
 import React from 'react';
 import './addToDoForm.css'
+import BootstrapButton from '@material-ui/core/Button';
 
 interface AddTodoFormProps {
     onAdd: () => void;
@@ -11,7 +12,9 @@ interface AddTodoFormProps {
     return (
     <>
       <input className="text" type="text" value={title}
-      onChange={onChange}/><button className="btn-add" onClick={onAdd}>Add a todo</button>
+      onChange={onChange}/><BootstrapButton variant="contained" color="primary" disableRipple onClick={onAdd}>
+      Add a todo
+    </BootstrapButton>
     </>
   )}
   
